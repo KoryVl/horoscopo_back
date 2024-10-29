@@ -10,7 +10,11 @@ app.use(urlencoded({ extended: true }));
 app.use(json());
 
 app.use(cors());
-
+app.use(cors({
+    origin: 'https://horoscopo-front-pi.vercel.app/', // URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Cabeceras permitidas
+  }));
 // Rutas existentes
 app.use('/v1/signos', router);
 
